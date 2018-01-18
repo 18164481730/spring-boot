@@ -20,7 +20,7 @@ $(function(){
         ],
         pager: "#jqGridPager",
         rowNum:10,
-        rowList:[10,30,45], //可调整每页显示的记录数
+        rowList:[5,10,30,45], //可调整每页显示的记录数
         viewrecords: true,//是否显示行数
         altRows: true,  //设置表格 zebra-striped 值
         gridview: true, //加速显示
@@ -49,7 +49,7 @@ $(function(){
             records: "page.total", //查询出的总记录数
             repeatitems : false //指明每行的数据是可以重复的，如果设为false，则会从返回的数据中按名字来搜索元素，这个名字就是colModel中的名字
         },
-    emptyrecords: '没有记录!',
+        emptyrecords: '没有记录!',
         loadtext: '正在查询服务器数据...'
     });
 
