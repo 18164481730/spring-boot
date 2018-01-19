@@ -22,8 +22,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class LoginController extends  AbstractController{
-    //private Logger logger = LoggerFactory.getLogger(this.getClass());
-
     @Autowired
     private UserService userService;
     
