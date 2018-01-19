@@ -1,30 +1,28 @@
 package com.tangzhihe.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import com.tangzhihe.domain.User;
 import com.tangzhihe.service.UserService;
+import com.tangzhihe.util.Md5Util;
 import com.tangzhihe.util.StringUtil;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.ui.Model;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /** 登录
  * Created by tengj on 2017/4/10.
  */
 @Controller
 public class LoginController extends  AbstractController{
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    //private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private UserService userService;
@@ -43,22 +41,19 @@ public class LoginController extends  AbstractController{
         String userName=request.getParameter("userName");
         String password=request.getParameter("password");
         if(StringUtil.isNull(userName)){
-        	map.put("result", "用户名不能为空!");
-        	return map;
+        	map.put("result", "0");
         } else if(StringUtil.isNull(password)) {
-        	map.put("result", "密码不能为空!");
-        	return map;
+        	map.put("result", "1");
         } else{
             User user =new User();
             user.setUsername(userName);
-            user.setPassword(password);
             request.getSession().setAttribute("user",user);
-            logger.info("userName: " + userName + " , " + "password: " + password);
+            System.out.println("userName: " + userName + " , password: " + password + " , 加密后: " + Md5Util.encrypt(password));
 	        List<User> userList = userService.queryUserList(user);
-	        if(userList.size()!=0) {
-	        	map.put("result", "1");
+	        if(userList.size()!=0 && Md5Util.encrypt(password).equals(userList.get(0).getPassword())) {
+	        	map.put("result", "2");
 	        }else {
-	        	map.put("result", "0");
+	        	map.put("result", "3");
 	        }
         }
         return map;
