@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
 import com.tangzhihe.domain.LearnResource;
-import com.tangzhihe.model.LeanQueryLeanListReq;
+import com.tangzhihe.model.LearnResourceModel;
 import com.tangzhihe.service.LearnService;
 import com.tangzhihe.util.AjaxObject;
 import com.tangzhihe.util.Page;
@@ -39,7 +39,7 @@ public class LearnController  extends AbstractController{
      */
     @RequestMapping(value = "/queryLeanList",method = RequestMethod.POST)
     @ResponseBody
-    public AjaxObject queryLearnList(Page<LeanQueryLeanListReq> page){
+    public AjaxObject queryLearnList(Page<LearnResourceModel> page){
         List<LearnResource> learnList=learnService.queryLearnResouceList(page);
         PageInfo<LearnResource> pageInfo =new PageInfo<LearnResource>(learnList);
         return AjaxObject.ok().put("page", pageInfo);

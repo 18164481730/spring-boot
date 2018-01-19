@@ -4,7 +4,7 @@ import java.util.List;
 import com.github.pagehelper.PageHelper;
 import com.tangzhihe.dao.LearnResourceDao;
 import com.tangzhihe.domain.LearnResource;
-import com.tangzhihe.model.LeanQueryLeanListReq;
+import com.tangzhihe.model.LearnResourceModel;
 import com.tangzhihe.service.LearnService;
 import com.tangzhihe.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +22,9 @@ public class LearnServiceImpl implements LearnService {
     private LearnResourceDao  learnResourceDao;
 
     @Override
-    public List<LearnResource> queryLearnResouceList(Page<LeanQueryLeanListReq> page) {
+    public List<LearnResource> queryLearnResouceList(Page<LearnResourceModel> page) {
         PageHelper.startPage(page.getPage(), page.getRows());
-        return learnResourceDao.queryLearnResouceList(page.getCondition());
+        LearnResourceModel learnResourceModel = new LearnResourceModel();
+        return learnResourceDao.queryLearnResouceList(learnResourceModel);
     }
 }

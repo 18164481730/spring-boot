@@ -1,7 +1,8 @@
 package com.tangzhihe.model;
 
+import com.tangzhihe.domain.LearnResource;
 
-public class LeanQueryLeanListReq{
+public class LearnResourceModel extends LearnResource{
 
     private String author;
     private String title;
