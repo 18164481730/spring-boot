@@ -6,22 +6,15 @@
     <!--加载配置文件，为下面读取数据库信息准备-->
     <properties resource="application.yml"/>
 
-    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
-
-        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.tangzhihe.util.MyMapper" />
-            <!--caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true-->
-          <property name="caseSensitive" value="true"/>
-        </plugin>
-
-        <!-- 阻止生成自动注释 -->
+    <context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">
         <commentGenerator>
             <property name="javaFileEncoding" value="UTF-8"/>
             <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true: 是  false: 否 -->
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
 
-        <!--数据库链接地址账号密码-->
+        <!--数据库链接地址、账号、密码-->
         <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
                         connectionURL="${spring.datasource.url}"
                         userId="${spring.datasource.username}"
@@ -51,12 +44,5 @@
        <javaClientGenerator type="XMLMAPPER" targetPackage="com.tangzhihe.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
        </javaClientGenerator>
-
-        <!--生成对应表及类名
-        	去掉Mybatis Generator生成的一堆 example
-        -->
-        <table tableName="LEARN_RESOURCE" domainObjectName="LearnResource" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
     </context>
 </generatorConfiguration>
