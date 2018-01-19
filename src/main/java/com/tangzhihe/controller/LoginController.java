@@ -2,7 +2,7 @@ package com.tangzhihe.controller;
 
 import com.tangzhihe.domain.User;
 import com.tangzhihe.service.UserService;
-import com.tangzhihe.tools.StringUtil;
+import com.tangzhihe.util.StringUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
