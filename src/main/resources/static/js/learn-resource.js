@@ -13,14 +13,11 @@ $(function(){
             { label: 'id', name: 'id', width: 75,hidden:true},
             { label: '作者', name: 'author', width: 200 },
             { label: '教程名称', name: 'title', width: 200 },
-            { label: '地址', name: 'url', width: 200 ,hidden:true},
-            { label: '地址', name: 'opt', width: 200,formatter: function(cellvalue, options, cell){
-                return '<a  href="'+cell.url+'" class="btn btn-purple btn-sm" target="_blank"><i class="fa fa-cog  fa-spin" aria-hidden="true"></i>点我</a>';
-            }}
+            { label: '地址', name: 'url', width: 200 ,hidden:true}
         ],
         pager: "#jqGridPager",
         rowNum:10,
-        rowList:[5,10,30,45], //可调整每页显示的记录数
+        rowList:[5,10,15], //可调整每页显示的记录数
         viewrecords: true,//是否显示行数
         altRows: true,  //设置表格 zebra-striped 值
         gridview: true, //加速显示
