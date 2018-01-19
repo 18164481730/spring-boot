@@ -2,9 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="此代码内容为超萌的猫头鹰登录界面" />
-<title>超萌的猫头鹰登录界面</title>
-
+<title>登录界面</title>
 <link rel="stylesheet" href="../static/assets/css/jq22.css"  th:href="@{/assets/css/jq22.css}"  />
 <link rel="stylesheet" href="../static/assets/css/font-awesome.min.css" th:href="@{/assets/css/font-awesome.min.css}"/>
 <script src="../static/assets/js/jquery-1.10.2.min.js" th:src="@{/assets/js/jquery-1.10.2.min.js}"></script>
@@ -32,13 +30,12 @@
                     },
                     dataType : "json",
                     success : function(data) {
-                    	alert(data.result);
                     	if(data.result == "0"){
                     		$.messager.alert("提示","账号不能为空!");
-                    	} else if (data.result = "1"){
+                    	} else if (data.result == "1"){
                     		$.messager.alert("提示","密码不能为空!");
                     	} else if (data.result == "2") {
-                            window.location.href =baseURL+"index";
+                            window.location.href = baseURL+"index";
                         } else if (data.result == "3") {
                             $.messager.alert("提示","账号密码不正确!");
                         }
@@ -63,7 +60,6 @@
                     </div>
                 </div>
                 <div class="pad">
-                    <input type="hidden" name="_csrf" value="9IAtUxV2CatyxHiK2LxzOsT6wtBE6h8BpzOmk="/>
                     <div class="control-group">
                         <div class="controls">
                             <label for="userName" class="control-label"><i class="fa fa-user" aria-hidden="true"></i></label>
