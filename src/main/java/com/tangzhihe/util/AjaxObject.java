@@ -1,7 +1,6 @@
 package com.tangzhihe.util;
 
 import org.apache.commons.httpclient.HttpStatus;
-
 import java.util.HashMap;
 import java.util.Map;
 
