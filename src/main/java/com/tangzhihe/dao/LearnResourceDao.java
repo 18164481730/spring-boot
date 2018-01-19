@@ -1,10 +1,9 @@
 package com.tangzhihe.dao;
 
-import java.util.Map;
 import java.util.List;
-import com.tangzhihe.util.MyMapper;
+import java.util.Map;
 import com.tangzhihe.domain.LearnResource;
 
-public interface LearnResourceDao extends MyMapper<LearnResource>{
+public interface LearnResourceDao {
 	List<LearnResource> queryLearnResouceList(Map<String,Object> map);
 }

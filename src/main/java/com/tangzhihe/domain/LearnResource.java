@@ -1,14 +1,6 @@
 package com.tangzhihe.domain;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Table(name = "learn_resource")
 public class LearnResource {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	/**
 	 * 作者

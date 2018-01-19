@@ -12,7 +12,7 @@ import com.tangzhihe.service.UserService;
 
 
 @Service
-public class UserServiceImpl extends BaseService<User> implements UserService{
+public class UserServiceImpl implements UserService{
 
 	@Autowired
 	private UserDao userDao;

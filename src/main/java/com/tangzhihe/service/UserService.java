@@ -5,7 +5,7 @@ import com.tangzhihe.domain.User;
 import org.apache.ibatis.annotations.Param;
 
 
-public interface UserService extends IService<User>{
+public interface UserService {
 	public List<User> queryUserList(@Param("entity")User user);
 	public void deleteBatch(Long[] ids);
 }
