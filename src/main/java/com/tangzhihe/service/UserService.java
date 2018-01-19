@@ -1,10 +1,11 @@
-package com.tangzhihe.dao;
+package com.tangzhihe.service;
 
 import java.util.List;
 import com.tangzhihe.domain.User;
-import com.tangzhihe.util.MyMapper;
 import org.apache.ibatis.annotations.Param;
 
-public interface UserDao extends MyMapper<User>{
+
+public interface UserService extends IService<User>{
 	public List<User> queryUserList(@Param("entity")User user);
+	public void deleteBatch(Long[] ids);
 }
