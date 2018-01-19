@@ -1,20 +1,22 @@
 package com.tangzhihe.controller;
 
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.github.pagehelper.PageInfo;
 import com.tangzhihe.domain.LearnResource;
 import com.tangzhihe.model.LeanQueryLeanListReq;
 import com.tangzhihe.service.LearnService;
 import com.tangzhihe.util.AjaxObject;
 import com.tangzhihe.util.Page;
-import com.github.pagehelper.PageInfo;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /** 教程页面
  * Created by tengj on 2017/3/13.
@@ -24,7 +26,6 @@ import java.util.List;
 public class LearnController  extends AbstractController{
     @Autowired
     private LearnService learnService;
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @RequestMapping("")
     public String learn(Model model){

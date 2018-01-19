@@ -18,5 +18,4 @@ public interface IService<T> {
 
     List<T> selectByExample(Object example);
 
-    //TODO 其他...
 }
