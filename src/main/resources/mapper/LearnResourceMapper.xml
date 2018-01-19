@@ -8,15 +8,29 @@
 	    <result column="url" property="url" />
 	</resultMap>
 	<select id="queryLearnResouceList" resultMap="learnResourceMap">
-		select * from learn_resource learn where 1 = 1
+		SELECT * FROM learn_resource learn WHERE 1 = 1
 		<if test="entity != null">
 			<if test="entity.author != null and entity.author != ''">
-				<![CDATA[ and learn.author like CONCAT('%',#{entity.author},'%') ]]>
+				<![CDATA[ AND learn.author LIKE CONCAT('%',#{entity.author},'%') ]]>
 			</if>
 			<if test="entity.title != null and entity.title  != ''">
-				<![CDATA[ and learn.title like CONCAT('%',#{entity.title},'%') ]]>
+				<![CDATA[ AND learn.title LIKE CONCAT('%',#{entity.title},'%') ]]>
 			</if>
 		</if>
-		order by learn.id desc
+		ORDER BY learn.id DESC
 	</select>
+	
+	<delete id="deleteByLearnResource" parameterType="java.lang.Long">
+		DELETE FROM learn_resource WHERE id = #{id} 
+	</delete>
+	
+	<insert id="insertByLearnResource" parameterType="com.tangzhihe.domain.LearnResource">
+		INSERT INTO learn_resource (id,author,title,url) 
+		            values(#{entity.id},#{entity.author},#{entity.title},#{entity.url});
+	</insert>
+	
+	<update id="updateByLearnResource" parameterType="com.tangzhihe.domain.LearnResource">
+		UPDATE learn_resource SET author = #{entity.author},title = #{entity.title},url = #{entity.url}
+		                      WHERE id = #{entity.id}
+	</update>
 </mapper>

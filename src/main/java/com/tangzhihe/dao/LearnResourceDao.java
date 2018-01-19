@@ -19,21 +19,21 @@ public interface LearnResourceDao {
 	 * @param userId
 	 * @return
 	 */
-	public int deleteByLearnResource(LearnResource learnResource);
+	public int deleteByLearnResource(Long id);
 	
 	/**
 	 * 插入数据
 	 * @param learnResource
 	 * @return
 	 */
-	public int insertByLearnResource(LearnResource learnResource);
+	public int insertByLearnResource(@Param("entity") LearnResource learnResource);
 	
 	/**
 	 * 更新数据
 	 * @param learnResource
 	 * @return
 	 */
-	public int updateByLearnResource(LearnResource learnResource);
+	public int updateByLearnResource(@Param("entity") LearnResource learnResource);
 }
 
 

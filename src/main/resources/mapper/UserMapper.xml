@@ -7,7 +7,7 @@
 		<result column="passwd" property="password"/>
 	</resultMap>
 	<select id="queryUserList" resultMap="userMap">
-		select * from t_user user where 1 = 1
+		SELECT * FROM t_user user WHERE 1 = 1
 		<if test="entity != null">
 			<if test="entity.username != null and entity.username != ''">
 				<![CDATA[ AND user.username = #{entity.username} ]]>
@@ -16,6 +16,6 @@
 				<![CDATA[ AND user.passwd = #{entity.password} ]]>
 			</if>
 		</if>
-		order by user.id desc
+		ORDER BY user.id DESC
 	</select>
 </mapper>

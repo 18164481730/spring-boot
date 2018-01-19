@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -45,4 +46,64 @@ public class LearnController  extends AbstractController{
         return AjaxObject.ok().put("page", pageInfo);
     }
     
+    /**
+     * 新添教程
+     * @param learnResource
+     * @return
+     */
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxObject addLearnResource(@RequestBody LearnResource learnResource) {
+    	int n = learnService.save(learnResource);
+    	if(n == 1) {
+    		return AjaxObject.ok();
+    	} else {
+    		return AjaxObject.error();
+    	}
+    }
+    
+    /**
+     * 更新教程
+     * @param learnResource
+     * @return
+     */
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxObject updateLearnResource(@RequestBody LearnResource learnResource) {
+    	int n = learnService.update(learnResource);
+    	if(n == 1) {
+    		return AjaxObject.ok();
+    	} else {
+    		return AjaxObject.error();
+    	}
+    }
+    
+    /**
+     * 删除教程
+     * @param learnResource
+     * @return
+     */
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxObject deleteLearnResource(@RequestBody Long[] ids) {
+    	learnService.delete(ids);
+    	return AjaxObject.ok();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

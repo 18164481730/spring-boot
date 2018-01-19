@@ -1,5 +1,6 @@
 package com.tangzhihe.service.impl;
 
+import java.util.Arrays;
 import java.util.List;
 import com.github.pagehelper.PageHelper;
 import com.tangzhihe.dao.LearnResourceDao;
@@ -27,4 +28,19 @@ public class LearnServiceImpl implements LearnService {
         LearnResourceModel learnResourceModel = new LearnResourceModel();
         return learnResourceDao.queryLearnResouceList(learnResourceModel);
     }
+
+	@Override
+	public int save(LearnResource learnResource) {
+		return learnResourceDao.insertByLearnResource(learnResource);
+	}
+
+	@Override
+	public int update(LearnResource learnResource) {
+		return learnResourceDao.updateByLearnResource(learnResource);
+	}
+
+	@Override
+	public void delete(Long[] ids) {
+		 Arrays.stream(ids).forEach(id->learnResourceDao.deleteByLearnResource(id));
+	}
 }

@@ -2,7 +2,6 @@ package com.tangzhihe.service.impl;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +17,7 @@ public class UserServiceImpl implements UserService{
 	private UserDao userDao;
 	
 	@Override
-	public List<User> queryUserList(@Param("entity")User user) {
+	public List<User> queryUserList(User user) {
 		return userDao.queryUserList(user);
 	}
 
