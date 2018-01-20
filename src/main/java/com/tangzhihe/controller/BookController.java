@@ -18,8 +18,8 @@ import com.tangzhihe.service.BookService;
 import com.tangzhihe.util.AjaxObject;
 import com.tangzhihe.util.Page;
 
-/** 教程页面
- * Created by tengj on 2017/3/13.
+/** 
+ * 教程页面
  */
 @Controller
 @RequestMapping("/book")

@@ -8,8 +8,6 @@ import java.util.Map;
 /**
  * 分页工具类
  * @author Administrator
- *
- * @param <T>
  */
 public class Page<T> implements Serializable{
 	private static final long serialVersionUID = 8832378391656309795L;

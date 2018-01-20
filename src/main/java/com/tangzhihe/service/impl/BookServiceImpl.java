@@ -12,10 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-
-/**
- * Created by tengj on 2017/4/7.
- */
 @Service
 public class BookServiceImpl implements BookService {
 

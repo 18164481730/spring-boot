@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-/** 登录
- * Created by tengj on 2017/4/10.
+/** 
+ * 登录
  */
 @Controller
 public class LoginController extends  AbstractController{
