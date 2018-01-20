@@ -75,11 +75,9 @@ var vm = new Vue({
         update:function(){
             var rows=$("#jqGrid").getGridParam('selarrrow');
             if(rows==0){
-                // $.messager.alert("温馨提示","请选择一行记录！");
                 layer.msg('请选择一行记录！', {icon: 7,time: 2000}); //2秒关闭（如果不配置，默认是3秒）
                 return;
             }else if(rows.length>1){
-                // $.messager.alert("温馨提示","不能同时修改多条记录！");
                 layer.msg('不能同时修改多条记录！', {icon: 7,time: 2000}); //2秒关闭（如果不配置，默认是3秒）
                 return;
             }else{
