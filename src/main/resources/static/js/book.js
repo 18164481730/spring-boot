@@ -3,17 +3,16 @@ $(function(){
     $(window).resize(function(){
         $("#jqGrid").setGridWidth($(window).width()*0.95);
     });
-    console.info(baseURL+"/learn/queryLeanList");
     $("#jqGrid").jqGrid({
-        url:baseURL+"learn/queryLeanList",
+        url:baseURL+"book/queryBookList",
         datatype: "json",
         mtype: 'POST',
         height:window.screen.height-550,
         colModel: [
             { label: 'id', name: 'id', width: 75,hidden:true},
+            { label: '书名', name: 'bookName', width: 200 },
             { label: '作者', name: 'author', width: 200 },
-            { label: '教程名称', name: 'title', width: 200 },
-            { label: '地址', name: 'url', width: 200 ,hidden:true}
+            { label: '描述', name: 'title', width: 200 ,hidden:false}
         ],
         pager: "#jqGridPager",
         rowNum:10,
@@ -97,7 +96,7 @@ var vm = new Vue({
             if(!$(".form-horizontal").valid()){
                 return false;
             }
-            var url = vm.learn.id == null ? "learn/add" : "learn/update";
+            var url = vm.learn.id == null ? "book/add" : "book/update";
             $.ajax({
                 type: "POST",
                 url: baseURL+url,
@@ -125,7 +124,7 @@ var vm = new Vue({
                 $.messager.confirm("温馨提示", "是否确定删除所选记录？", function() {
                     $.ajax({
                         type:"post",
-                        url:baseURL+"learn/delete",
+                        url:baseURL+"book/delete",
                         cache: false,
                         contentType: "application/json",
                         data: JSON.stringify(ids),

@@ -27,7 +27,7 @@
                                                     <div class="col-sm-3" style="width: 200px;">
                                                         <input id="qryAuthor"  v-model="qryAuthor" data-original-title="Tooltip for name" class="form-control radius" placeholder="请输入作者" type="text" />
                                                     </div>
-                                                    <label class="col-sm-1 control-label">教程名称：</label>
+                                                    <label class="col-sm-1 control-label">书名：</label>
                                                     <div class="col-sm-3" style="width: 200px;">
                                                         <input id="qryTitle" v-model="qryTitle" data-original-title="Tooltip for name" class="form-control radius" placeholder="请输入教程名称" type="text"  />
                                                     </div>
@@ -108,7 +108,7 @@
 </div>
 
 <div layout:fragment="js" th:remove="tag">
-    <script th:src="@{/js/learn-resource.js}"></script>
+    <script th:src="@{/js/book.js}"></script>
 </div>
 </body>
 </html>

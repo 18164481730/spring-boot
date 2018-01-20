@@ -1,7 +1,14 @@
 package com.tangzhihe.domain;
 
-public class LearnResource {
+public class Book {
+	/**
+	 * 主键ID
+	 */
 	private Long id;
+	/**
+	 * 书名
+	 */
+	private String bookName;
 	/**
 	 * 作者
 	 */
@@ -10,15 +17,18 @@ public class LearnResource {
 	 * 描述
 	 */
 	private String title;
-	/**
-	 * 地址链接
-	 */
-	private String url;
+	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public String getBookName() {
+		return bookName;
+	}
+	public void setBookName(String bookName) {
+		this.bookName = bookName == null ? null : bookName.trim();
 	}
 	public String getAuthor() {
 		return author;
@@ -32,13 +42,6 @@ public class LearnResource {
 	public void setTitle(String title) {
 		this.title = title == null ? null : title.trim();
 	}
-	public String getUrl() {
-		return url;
-	}
-	public void setUrl(String url) {
-		this.url = url == null ? null : url.trim();
-	}
-	
 }
 
 
